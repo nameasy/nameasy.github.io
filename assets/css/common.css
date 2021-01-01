@@ -1,0 +1,144 @@
+*,
+:after,
+:before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    list-style: none;
+    outline: none
+}
+
+:root {
+    --white-color: #fff;
+    --lighter-gray-color: #f7f7f7;
+    --light-grey-color: #eee;
+    --medium-gray-color: #ccc;
+    --dark-grey-color: #777;
+    --darker-gray-color: #333
+}
+
+html,
+body {
+    font-size: 100%;
+    margin: 0;
+    padding: 0
+}
+
+a {
+    color: #333;
+    font-family: "Object Sans", sans-serif;
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 27px;
+    text-decoration: none
+}
+
+h1 {
+    color: #333;
+    font-family: "Object Sans", serif;
+    font-size: 60.75px;
+    font-weight: 400;
+    line-height: 60.75px
+}
+
+h2 {
+    color: #333;
+    font-family: "Object Sans", serif;
+    font-size: 40.5px;
+    font-weight: 400;
+    line-height: 40.5px
+}
+
+p {
+    color: #333;
+    font-family: "Object Sans", sans-serif;
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 40.5px
+}
+
+button {
+    color: #333;
+    font-family: "Object Sans", sans-serif;
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 27px
+}
+
+span {
+    color: #333;
+    font-family: "Object Sans", sans-serif;
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 27px
+}
+
+img {
+    vertical-align: bottom
+}
+
+input {
+    color: #333;
+    font-family: "Object Sans", sans-serif;
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 27px
+}
+
+svg {
+    fill: #333;
+    height: 27px;
+    width: 27px
+}
+
+svg:hover {
+    fill: #777
+}
+
+svg.f60b2cc {
+    fill: #60b2cc
+}
+
+svg.feabc32 {
+    fill: #eabc32
+}
+
+svg.fc96565 {
+    fill: #c96565
+}
+
+svg.f7f5b93 {
+    fill: #7f5b93
+}
+
+svg.f53ae9d {
+    fill: #53ae9d
+}
+
+svg.bbe3f7 {
+    fill: #bbe3f7
+}
+
+svg.f7e695 {
+    fill: #f7e695
+}
+
+svg.fabebd {
+    fill: #fabebd
+}
+
+svg.c4b1d3 {
+    fill: #c4b1d3
+}
+
+svg.c2e5de {
+    fill: #c2e5de
+}
+
+svg.feather {
+    -ms-flex-negative: 0;
+    color: #333;
+    fill: none;
+    flex-shrink: 0;
+    height: 27px;
+    width: 27px
+}
