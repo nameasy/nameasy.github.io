@@ -55,7 +55,8 @@ margin: 5px;
 </body>
 
 <script type="text/javascript">
-$(function(){		
+$(function(){
+	$('a').on('click', function (e) { e.preventDefault() });
 	$("a[href^='about']").on('click', function(){		
 		$.ajax({
 			url: 'about.html',
