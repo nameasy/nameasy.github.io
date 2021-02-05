@@ -1,0 +1,11 @@
+html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6 {
+	font-family: "Object Sans", sans-serif;
+}
+
+button, input, select, textarea {
+	font-family: "Object Sans", sans-serif;
+}
+
+a {
+	font-family: "Object Sans", sans-serif;
+}
