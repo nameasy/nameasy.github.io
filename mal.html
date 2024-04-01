@@ -13,10 +13,10 @@
 		<meta content="https://nameasy.github.io/mal.html" property="twitter:url" />
 		<meta content="Мой анимелист" property="twitter:title" />
 		<script src="scripts/libraries/vue.global.prod.min.js"></script>
-		<script type="module" crossorigin src="assets/mal-DaWH2ywm.js"></script>
-		<link rel="modulepreload" crossorigin href="assets/projects-CWkPN6bc.js">
-		<link rel="modulepreload" crossorigin href="assets/related-CQ4a21Pc.js">
-		<link rel="stylesheet" crossorigin href="assets/projects-lxhjDu9G.css">
+		<script type="module" crossorigin src="assets/mal-C19w3dwb.js"></script>
+		<link rel="modulepreload" crossorigin href="assets/projects-BZa-CiKp.js">
+		<link rel="modulepreload" crossorigin href="assets/related-DxiG54xw.js">
+		<link rel="stylesheet" crossorigin href="assets/projects-DKp_bXsx.css">
 	</head>
 
 	<body>
@@ -44,29 +44,54 @@
 							</fieldset>
 							<section class="section__item stats" id="stats" ref="stats">
 								<h2 class="visually-hidden">Статистика</h2>
-								<section v-for="(year, index) in uniqueYears" :key="index" class="stats__item chart-group">
-									<h3 class="chart-group__title">{{ year }}</h3>
-									<ul class="chart-group__list">
-										<li v-for="(column, index) in filterColumnsByYear(year).reverse()" :key="index" class="chart-group__item chart">
-											<div class="chart__month">{{ column.date }}</div>
-											<div class="chart__bar" :style="{ flexBasis: column.percentage + '%' }"></div>
-											<div class="chart__number">{{ column.value }}</div>
+								<template v-for="(year, index) in uniqueYears" :key="index">
+									<section v-if="year !== 'early'" class="stats__item chart-group">
+										<h3 class="chart-group__title">{{ year }}</h3>
+										<ul class="chart-group__list">
+											<li v-for="(column, columnIndex) in filterColumnsByYear(year).reverse()" :key="columnIndex" class="chart-group__item chart">
+												<div class="chart__month">{{ column.date }}</div>
+												<div class="chart__bar" :style="{ flexBasis: `${column.percentage}%` }"></div>
+												<div class="chart__number">{{ column.value }}</div>
+											</li>
+										</ul>
+									</section>
+								</template>
+								<section v-if="uniqueYears.includes('early')" class="stats__item chart-group">
+									<h3 class="chart-group__title">Раннее</h3>
+									<!-- <ul class="chart-group__list">
+										<li class="chart-group__item chart">
+											<div class="chart__month"></div>
+											<div class="chart__bar" :style="{ flexBasis: `${earlyPercentage}%` }"></div>
+											<div class="chart__number">{{ earlyCount }}</div>
 										</li>
-									</ul>
+									</ul> -->
+									<div class="chart">
+										<div class="chart__month"></div>
+										<div class="chart__bar" :style="{ flexBasis: `${earlyPercentage}%` }"></div>
+										<div class="chart__number">{{ earlyCount }}</div>
+									</div>
 								</section>
 							</section>
 							<section class="section__item watchlist" id="watchlist">
 								<h2 class="visually-hidden">Аниме</h2>
-								<section v-for="(year, index) in uniqueYears" :key="index" class="watchlist__item anime-group">
-									<h3 class="anime-group__title">{{ year }}</h3>
-									<template v-for="month in 12">
-										<div v-if="hasTitles(year, month)" :key="month" class="anime">
-											<div class="anime__month">{{ getMonthName(month) }}</div>
-											<ul class="anime__list">
-												<li v-for="item in filterTitlesByYearMonth(year, month)" :key="item.id" class="anime__item">{{ item.name }}</li>
-											</ul>
-										</div>
-									</template>
+								<template v-for="(year, index) in uniqueYears" :key="index">
+									<section v-if="year !== 'early'" class="watchlist__item anime-group">
+										<h3 class="anime-group__title">{{ year }}</h3>
+										<template v-for="month in 12">
+											<div v-if="hasTitles(year, month)" :key="month" class="anime">
+												<div class="anime__month">{{ getMonthName(month) }}</div>
+												<ul class="anime__list">
+													<li v-for="item in filterTitlesByYearMonth(year, month)" :key="item.id" class="anime__item">{{ item.name }}</li>
+												</ul>
+											</div>
+										</template>
+									</section>
+								</template>
+								<section v-if="earlyAnimes.length > 0" class="watchlist__item anime-group">
+									<h3 class="anime-group__title">Раннее</h3>
+									<ul class="anime__list">
+										<li v-for="(anime, index) in earlyAnimes" :key="index" class="anime__item">{{ anime.name }}</li>
+									</ul>
 								</section>
 							</section>
 						</div>
